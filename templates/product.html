@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Product Card/Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'pr/style.css' %}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+  </head>
+  <body>
+    
+   <div class="card-wrapper" style="display: flex; gap: 20px; max-width: 900px; margin: auto;">
+
+  <!-- Left: Product Image -->
+  <div class="product-imgs" style="position: relative; width: 40%;">
+    <img src="{{ pr.image.url }}"
+         style="height: 300px; width: 100%; object-fit: contain;"
+         alt="product image" />
+    <div style="
+         position: absolute;
+         top: 10px;
+         left: 10px;
+         color: white;
+         background-color: rgba(0, 0, 0, 0.5);
+         padding: 5px 10px;
+         border-radius: 5px;">
+      <!-- overlay content here -->
+    </div>
+  </div>
+
+              
+             
+              
+            </div>
+          </div>
+          
+            
+          </div>
+        </div>
+        <!-- card right -->
+        <div class = "product-content">
+          <h2 class = "product-title">{{pr.name}}</h2>
+
+
+
+          <div class = "product-price">
+
+            <p class = "-price"> Price: <span>{{pr.price}}₹ </span></p>
+          </div>
+
+          <div class = "product-detail">
+            <h2>about this item: </h2>
+            <p>{{pr.description}}</p>
+            <p>stock left:{{pr.stock}}</p>
+  {% if pr.stock <= 0 %}
+      <h3 style="color:red">Sorry, out of stock</h3>
+
+            {% else %}
+
+
+          </div>
+
+          <form method="get" action="{% url 'AddCart' pr.id %}">
+    <input type="number" name="quantity" min="1" value="1">
+    <button type="submit" class="btn btn-primary">
+        Add to Cart <i class="fas fa-shopping-cart"></i>
+    </button>
+</form>
+
+{% endif %}
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+
+    
+    <script src="{% static 'script.js' %}"></script>
+  </body>
+</html>
+{% endblock %}
