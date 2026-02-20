@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 import os
 from pathlib import Path
-from django.contrib.auth import get_user_model
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -32,10 +32,6 @@ CSRF_TRUSTED_ORIGINS = [
 ]
 
 
-if os.environ.get("CREATE_SUPERUSER") == "True":
-    User = get_user_model()
-    if not User.objects.filter(username="admin").exists():
-        User.objects.create_superuser("ADMIN", "admin@example.com", "1234")
 
 # Application definition
 
