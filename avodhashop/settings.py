@@ -35,7 +35,7 @@ CSRF_TRUSTED_ORIGINS = [
 if os.environ.get("CREATE_SUPERUSER") == "True":
     User = get_user_model()
     if not User.objects.filter(username="admin").exists():
-        User.objects.create_superuser("admin", "admin@example.com", "admin123")
+        User.objects.create_superuser("admin", "admin@example.com", "1234")
 
 # Application definition
 
