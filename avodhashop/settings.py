@@ -26,6 +26,9 @@ SECRET_KEY = 'django-insecure-f5$9p015z0)@tp$ff@@ct61&o%$^lsm(galp(p=nxs#kpq8^d^
 DEBUG = True
 
 ALLOWED_HOSTS = ['.up.railway.app']
+CSRF_TRUSTED_ORIGINS = [
+    "https://grocery-store-web-production.up.railway.app",
+]
 
 
 # Application definition
